@@ -4,10 +4,15 @@ A fun and simple Discord bot that generates unique, detailed fursona description
 
 ## ✨ Features
 
-- **Massive Species Library:** Over 100 options including common, exotic, community-original (Protogens, Sergals, etc.), and mythical creatures.
-- **Deep Attributes:** Generates Species, Body Type, Aesthetic Vibe, Personality, Elemental Affinity, Clothing Style, Patterns, and more.
-- **Dynamic Embeds:** Features themed emojis and organized layouts for a "premium" feel.
-- **Modern Interaction:** Uses Discord's Slash Commands (`/fursona`) for a seamless user experience.
+- **Infinite Variety:** Hundreds of species (Canine, Feline, Aquatic, Mythical, Original) and millions of trait combinations.
+- **Multi-Dimensional Profiles:**
+    - **🧬 Basic Info:** Species, Personality, Aesthetic.
+    - **🎨 Appearance:** High-detail colors, patterns, and pupil types.
+    - **🦴 Physical Traits:** Specific Ear and Tail types, plus Elemental Affinity.
+    - **📜 Lore & Background:** Random Occupations and Habitats for instant backstory.
+    - **👂 Sensory Details:** Unique scents and voice types for immersive roleplay.
+- **Professional Embeds:** Sophisticated, multi-field Discord layouts with themed emojis.
+- **Slash Commands:** Modern `/fursona` command for easy use.
 
 ## 🚀 Getting Started
 
