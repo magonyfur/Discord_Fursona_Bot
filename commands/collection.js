@@ -21,14 +21,13 @@ module.exports = {
                 .setTitle(`Saved Fursona #${index + 1}`)
                 .setDescription(`**Saved on:** ${new Date(fursona.savedAt).toLocaleDateString()}`)
                 .addFields(
-                    { name: '🧬 Basic Info', value: `**Species:** ${fursona.species}\n**Personality:** ${fursona.personality}\n**Home:** ${fursona.habitat}`, inline: false },
-                    { name: '🎨 Appearance', value: `**Pattern:** ${fursona.pattern}\n**Primary:** ${fursona.primaryColor}\n**Secondary:** ${fursona.secondaryColor}\n**Eyes:** ${fursona.eyeColor}`, inline: true },
-                    { name: '🦴 Physical Nuances', value: `**Height:** ${fursona.height}\n**Texture:** ${fursona.texture}\n**Marking:** ${fursona.scar}`, inline: true },
-                    { name: '🧠 Psychology', value: `**Motivation:** ${fursona.motivation}\n**Flaw:** ${fursona.flaw}\n**Fear:** ${fursona.fear}`, inline: false },
-                    { name: '⚔️ Abilities & Skills', value: `**Power:** ${fursona.power}\n**Talent:** ${fursona.skill}`, inline: true },
-                    { name: '👂 Sensory', value: `**Voice:** ${fursona.voice}\n**Scent:** ${fursona.scent}`, inline: true },
-                    { name: '📜 Deep Lore', value: `**Secret:** ${fursona.secret}\n**Signature Item:** ${fursona.item}`, inline: false },
-                    { name: '⭐ Unique Quirk', value: fursona.quirk, inline: true }
+                    { name: '🧬 Identity & Social', value: `**Species:** ${fursona.species}\n**Social Class:** ${fursona.socialStatus}\n**Personality:** ${fursona.personality}`, inline: false },
+                    { name: '🎨 Visual Palette', value: `**Primary:** ${fursona.primaryColor}\n**Secondary:** ${fursona.secondaryColor}\n**Pattern:** ${fursona.pattern}\n**Texture:** ${fursona.texture}`, inline: true },
+                    { name: '📊 Character Stats', value: fursona.stats, inline: true },
+                    { name: '👗 Multi-Layer Wardrobe', value: `**Head:** ${fursona.head}\n**Neck:** ${fursona.neck}\n**Torso:** ${fursona.torso}\n**Legs:** ${fursona.legs}\n**Item:** ${fursona.accessory}`, inline: false },
+                    { name: '🧠 Psych & Lore', value: `**Motivation:** ${fursona.motivation}\n**Life Goal:** ${fursona.lifeGoal}`, inline: true },
+                    { name: '👂 Sensory & Verbal', value: `**Voice:** ${fursona.voice}\n**Speech:** ${fursona.speech}\n**Scent:** ${fursona.scent}`, inline: true },
+                    { name: '⭐ Unique Quirk', value: fursona.quirk, inline: false }
                 )
                 .setFooter({ text: `Page ${index + 1} of ${saves.length} | Your Collection` });
         };

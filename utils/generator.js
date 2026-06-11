@@ -27,37 +27,35 @@ const patterns = [
     'Solid', 'Spotted', 'Striped', 'Brindle', 'Gradient', 'Piebald', 'Rosettes', 'Marbled', 'Speckled', 'Vibrant Markings', 'Glowing Runes', 'Starry/Galaxy', 'Socks and Mittens', 'Underbelly Fade', 'Points (Ears/Tail/Paws)', 'Vitiligo-style Patches', 'Dappled', 'Symmetrical Tribal Tattoos', 'Bioluminescent Veins', 'Splattered Paint Look', 'Geometric Accents', 'Honeycomb Pattern', 'Circuitry Lines', 'Cloud-like Swirls', 'Zebra Stripes', 'Tiger Stripes', 'Cheetah Spots', 'Iridescent Sheen', 'Oil Slick', 'Lace-like Markings', 'Fractal Designs', 'Camo', 'Faded Newspaper Texture'
 ];
 
+const wardrobe = {
+    head: ['None', 'Wide-brimmed Hat', 'Beanie with ear holes', 'Crown of Flowers', 'Aviator Goggles', 'Snapback Cap', 'Pointy Wizard Hat', 'VR Headset', 'Golden Circlet', 'Skull Mask', 'Headphones'],
+    neck: ['None', 'Spiked Collar', 'Silk Scarf', 'Heavy Silver Chain', 'Glowing Pendant', 'Colorful Bandana', 'Bowtie', 'Clockwork Choker', 'Leather Cuffs (Neck)', 'Feathered Boa'],
+    torso: ['None', 'Oversized Hoodie', 'Tactical Vest', 'Formal Waistcoat', 'Battered Leather Jacket', 'Hawaiian Shirt', 'Tattered Cloak', 'High-tech Armor Plate', 'Crop Top', 'Vintage Cardigan', 'Flannel Shirt'],
+    legs: ['None', 'Cargo Shorts', 'Skinny Jeans', 'Baggy Techwear Pants', 'Formal Slacks', 'Distressed Denim', 'Leg Warmers', 'Armor Greaves', 'Skirt with frills', 'Kilt', 'Cybernetic Braces'],
+    accessory: ['None', 'Messenger Bag', 'Staff of Power', 'Holographic Wrist-pad', 'Nunchucks', 'Ancient Grimoire', 'Tool Belt', 'Guitar strapped to back', 'Plushie in pocket', 'Sheathed Dagger', 'Energy Shield']
+};
+
 const psychology = {
-    motivations: ['Finding a lost family heirloom', 'Becoming the greatest chef in the land', 'Proving everyone wrong', 'Protecting a small, hidden village', 'Solving a mystery from their childhood', 'Achieving inner peace through meditation', 'Building a massive collection of technology', 'Traveling to every corner of the world', 'Atoning for a past mistake'],
-    flaws: ['Overly trusting', 'Terrified of being alone', 'Stops to look at every shiny thing', 'Gets distracted by food easily', 'Can\'t say no to a dare', 'Stubborn to a fault', 'Extremely pessimistic', 'Always late to everything', 'Forgetful of important names'],
-    fears: ['Wide open spaces', 'The sound of ticking clocks', 'Being forgotten', 'Deep water', 'Crowded cities', 'Complete silence', 'Failing those who depend on them', 'Spiders (even tiny ones)', 'Losing their magic/abilities']
+    motivations: ['Finding a lost family heirloom', 'Becoming a world-renowned artist', 'Protecting the weak', 'Seeking ultimate knowledge', 'Rebuilding a fallen kingdom', 'Living a quiet life in nature', 'Toppling a corrupt corporation', 'Mapping the entire galaxy', 'Mastering the culinary arts'],
+    goals: ['To find true love', 'To invent a new form of energy', 'To win a legendary tournament', 'To make everyone smile', 'To be the first of their kind in space', 'To write a best-selling novel', 'To start a successful business'],
+    social: ['Reclusive Hermit', 'High-society Socialite', 'Street-smart Rogue', 'Respected Village Elder', 'Famous Internet Celebrity', 'Humble Apprentice', 'Exiled Royalty', 'Middle-class Professional', 'Roaming Nomad']
 };
 
-const physicalNuances = {
-    scars: ['Jagged scar on left shoulder', 'Missing the tip of an ear', 'Burn marks on paws', 'Small scar across the bridge of the nose', 'Old battle scar on the flank', 'Perfectly symmetrical surgical scars', 'Faded scar through one eyebrow'],
-    texture: ['Extremely soft and velvet-like', 'Coarse and weather-beaten', 'Sleek and waterproof', 'Always feels slightly warm', 'Silky and shimmering', 'Rough like sandpaper in places', 'Thick and wooly'],
-    height: ['Remarkably tall and imposing', 'Dainty and small-statured', 'Average height but very muscular', 'Short and stout', 'Lanky and awkward', 'Compact and agile']
-};
-
-const abilities = {
-    powers: ['Can speak to insects', 'Leaves glowing footprints', 'Can manipulate small shadows', 'Immune to extreme cold', 'Can predict the weather accurately', 'Can change the color of their fur at will', 'Never gets tired from running', 'Can summon a tiny rain cloud'],
-    skills: ['Expert lockpicker', 'Master of the acoustic guitar', 'Incredible at competitive baking', 'Speaks seven different languages', 'Can fix any machine with just a screwdriver', 'Perfect internal compass', 'Prodigy at chess']
-};
-
-const lore = {
-    secrets: ['Once stole a royal jewel and returned it anonymously', 'Is actually from a different timeline', 'Can\'t swim despite being an aquatic species', 'Has a secret crush on their rival', 'The markings on their fur are actually a map', 'Used to be a high-ranking official but quit to be a baker'],
-    items: ['A compass that points to what you desire most', 'A heavily worn leather journal', 'A small mechanical bird that chirps', 'An ancient, rusted key worn as a necklace', 'A bag of infinite (but slightly stale) crackers', 'A glowing blue crystal shard']
-};
-
-const habitatLore = [
-    'Neon-drenched Megacity', 'Ancient Enchanted Forest', 'Floating Island', 'Deep Sea Colony', 'Underground Bunker', 'Desert Oasis', 'Asteroid Belt Station', 'Cozy Mountain Cabin', 'Cloud Kingdom', 'Crystal Caves', 'Post-Apocalyptic Wasteland', 'Victorian-era Village', 'High-tech Space Laboratory', 'Sunken Pirate Ship', 'Endless Field of Lavender', 'Volcanic Fortress'
-];
-
-const scents = ['Fresh Rain and Pine', 'Old Books and Vanilla', 'Gunpowder and Ozone', 'Strawberries and Cream', 'Sandalwood and Spice', 'Sea Salt and Citrus', 'Coffee and Morning Mist', 'Lavender and Honey', 'Burnt Sugar and Smoke', 'Freshly Cut Grass', 'New Parchment', 'Peppermint and Snow'];
-const voices = ['Deep and Gravelly', 'Soft and Melodic', 'Raspy Whisper', 'Energetic and High-pitched', 'Calm and Monotone', 'Cheerful and Bubbly', 'Sultry and Smooth', 'Robotically Modulated', 'Slightly echoey', 'Warm and comforting'];
+const speech = ['Talks in technical jargon', 'Uses many "furry" puns', 'Extremely formal and polite', 'Speaks in short, clipped sentences', 'Slow and thoughtful', 'Very fast and excitable', 'Whispers almost constantly', 'Sings their words', 'Uses heavy slang', 'Dry and sarcastic'];
 
 function getRandomElement(array) {
     return array[Math.floor(Math.random() * array.length)];
+}
+
+function generateStats() {
+    return {
+        STR: Math.floor(Math.random() * 10) + 1,
+        AGI: Math.floor(Math.random() * 10) + 1,
+        INT: Math.floor(Math.random() * 10) + 1,
+        CHA: Math.floor(Math.random() * 10) + 1,
+        LCK: Math.floor(Math.random() * 10) + 1,
+        FLF: Math.floor(Math.random() * 10) + 1 // Fluffiness
+    };
 }
 
 function generateFursona() {
@@ -70,28 +68,29 @@ function generateFursona() {
         eyeColor: getRandomElement(colors),
         personality: getRandomElement(['Shy', 'Energetic', 'Grumpy', 'Mischievous', 'Clumsy', 'Sophisticated', 'Cuddly', 'Adventurous', 'Lazy', 'Cheerful', 'Stoic', 'Sarcastic', 'Anxious', 'Confident', 'Dreamy', 'Hyperactive', 'Gentle', 'Flirtatious', 'Studious', 'Rebellious', 'Mysterious', 'Kind-hearted', 'Eccentric', 'Philosophical', 'Protective', 'Ambitious', 'Carefree', 'Whimsical', 'Charismatic', 'Apathetic', 'Determined']),
         
-        // Physical Nuance
-        height: getRandomElement(physicalFeatures.height),
-        texture: getRandomElement(physicalNuances.texture),
-        scar: getRandomElement(physicalNuances.scars),
+        // Stats
+        stats: generateStats(),
+
+        // Wardrobe
+        head: getRandomElement(wardrobe.head),
+        neck: getRandomElement(wardrobe.neck),
+        torso: getRandomElement(wardrobe.torso),
+        legs: getRandomElement(wardrobe.legs),
+        accessory: getRandomElement(wardrobe.accessory),
         
-        // Psychology
+        // Social & Bio
+        socialStatus: getRandomElement(psychology.social),
+        lifeGoal: getRandomElement(psychology.goals),
         motivation: getRandomElement(psychology.motivations),
-        flaw: getRandomElement(psychology.flaws),
-        fear: getRandomElement(psychology.fears),
         
-        // Lore
-        secret: getRandomElement(lore.secrets),
-        item: getRandomElement(lore.items),
-        habitat: getRandomElement(habitatLore),
-        
-        // Abilities
-        power: getRandomElement(abilities.powers),
-        skill: getRandomElement(abilities.skills),
-        
-        // Sensory
-        scent: getRandomElement(scents),
-        voice: getRandomElement(voices),
+        // Verbal
+        speech: getRandomElement(speech),
+        voice: getRandomElement(['Deep and Gravelly', 'Soft and Melodic', 'Raspy Whisper', 'Energetic and High-pitched', 'Calm and Monotone', 'Cheerful and Bubbly', 'Sultry and Smooth', 'Robotically Modulated', 'Slightly echoey', 'Warm and comforting']),
+        scent: getRandomElement(['Fresh Rain and Pine', 'Old Books and Vanilla', 'Gunpowder and Ozone', 'Strawberries and Cream', 'Sandalwood and Spice', 'Sea Salt and Citrus', 'Coffee and Morning Mist', 'Lavender and Honey', 'Burnt Sugar and Smoke', 'Freshly Cut Grass', 'New Parchment', 'Peppermint and Snow']),
+
+        // Physical Misc
+        texture: getRandomElement(['Extremely soft', 'Coarse', 'Sleek', 'Slightly warm', 'Silky', 'Rough', 'Thick and wooly']),
+        height: getRandomElement(['Remarkably tall', 'Dainty and small', 'Average/Muscular', 'Short and stout', 'Lanky', 'Compact and agile']),
         
         quirk: getRandomElement(['Wears a colorful bandana', 'Has a mechanical arm', 'Always carries a sketchbook', 'Loves drinking coffee', 'Has glow-in-the-dark markings', 'Wears oversized hoodies', 'Is a huge fan of retro games', 'Has mismatched eyes', 'Always has a plushie with them', 'Talks to plants', 'Is obsessed with space', 'Has a very long, fluffy tail', 'Wears round glasses', 'Has a collection of shiny rocks', 'Can never find their keys', 'Has a holographic display on their visor', 'Wears a spiked collar', 'Has wings that are too small for flight', 'Always has headphones on', 'Is surprisingly good at cooking', 'Has a secret talent for singing', 'Purrs when happy', 'Hoards shiny objects', 'Has a distinctive scar over one eye', 'Is always covered in glitter', 'Sneezes like a kitten', 'Has tiny horns hidden in fur', 'Tail wags uncontrollably', 'Afraid of vacuum cleaners', 'Always smells like cinnamon', 'Can see ghosts', 'Collects vintage postcards', 'Can only sleep while hanging upside down'])
     };

@@ -9,21 +9,20 @@ module.exports = {
         const fursona = generateFursona();
 
         const embed = new EmbedBuilder()
-            .setColor(0xAA00FF)
-            .setTitle('💎 The Infinite Fursona Synthesis 💎')
-            .setDescription('**A high-fidelity character profile has been generated from the digital ether.**')
+            .setColor(0x00D4FF)
+            .setTitle('🌟 The Zenith Fursona Synthesis 🌟')
+            .setDescription('**An apex character entity has been manifested from the deep data-stream.**')
             .addFields(
-                { name: '🧬 Basic Info', value: `**Species:** ${fursona.species}\n**Personality:** ${fursona.personality}\n**Home:** ${fursona.habitat}`, inline: false },
-                { name: '🎨 Appearance', value: `**Pattern:** ${fursona.pattern}\n**Primary:** ${fursona.primaryColor}\n**Secondary:** ${fursona.secondaryColor}\n**Eyes:** ${fursona.eyeColor}`, inline: true },
-                { name: '🦴 Physical Nuances', value: `**Height:** ${fursona.height}\n**Texture:** ${fursona.texture}\n**Marking:** ${fursona.scar}`, inline: true },
-                { name: '🧠 Psychology', value: `**Motivation:** ${fursona.motivation}\n**Flaw:** ${fursona.flaw}\n**Fear:** ${fursona.fear}`, inline: false },
-                { name: '⚔️ Abilities & Skills', value: `**Power:** ${fursona.power}\n**Talent:** ${fursona.skill}`, inline: true },
-                { name: '👂 Sensory', value: `**Voice:** ${fursona.voice}\n**Scent:** ${fursona.scent}`, inline: true },
-                { name: '📜 Deep Lore', value: `**Secret:** ${fursona.secret}\n**Signature Item:** ${fursona.item}`, inline: false },
-                { name: '⭐ Unique Quirk', value: fursona.quirk, inline: true }
+                { name: '🧬 Identity & Social', value: `**Species:** ${fursona.species}\n**Social Class:** ${fursona.socialStatus}\n**Personality:** ${fursona.personality}`, inline: false },
+                { name: '🎨 Visual Palette', value: `**Primary:** ${fursona.primaryColor}\n**Secondary:** ${fursona.secondaryColor}\n**Pattern:** ${fursona.pattern}\n**Texture:** ${fursona.texture}`, inline: true },
+                { name: '📊 Character Stats', value: `**STR:** ${fursona.stats.STR} | **AGI:** ${fursona.stats.AGI} | **INT:** ${fursona.stats.INT}\n**CHA:** ${fursona.stats.CHA} | **LCK:** ${fursona.stats.LCK} | **FLF:** ${fursona.stats.FLF}`, inline: true },
+                { name: '👗 Multi-Layer Wardrobe', value: `**Head:** ${fursona.head}\n**Neck:** ${fursona.neck}\n**Torso:** ${fursona.torso}\n**Legs:** ${fursona.legs}\n**Item:** ${fursona.accessory}`, inline: false },
+                { name: '🧠 Psych & Lore', value: `**Motivation:** ${fursona.motivation}\n**Life Goal:** ${fursona.lifeGoal}`, inline: true },
+                { name: '👂 Sensory & Verbal', value: `**Voice:** ${fursona.voice}\n**Speech:** ${fursona.speech}\n**Scent:** ${fursona.scent}`, inline: true },
+                { name: '⭐ Unique Quirk', value: fursona.quirk, inline: false }
             )
             .setTimestamp()
-            .setFooter({ text: 'Fursona Generator Bot | The Ultimate Character Engine' });
+            .setFooter({ text: 'Fursona Generator Bot | Apex Character Engine' });
 
         const saveButton = new ButtonBuilder()
             .setCustomId('save_fursona')

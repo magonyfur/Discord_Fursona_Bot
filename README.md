@@ -6,15 +6,13 @@ A fun and simple Discord bot that generates unique, detailed fursona description
 
 - **Save Collection:** Save your favorite generations to your personal collection with a single click.
 - **Manage Collection:** View and cycle through your saved fursonas anytime with `/collection`.
-- **Infinite Variety:** Hundreds of species (Canine, Feline, Aquatic, Mythical, Original) and millions of trait combinations.
-- **Multi-Dimensional Profiles:**
-    - **🧬 Basic Info:** Species, Personality, Aesthetic.
-    - **🎨 Appearance:** High-detail colors, patterns, and pupil types.
-    - **🦴 Physical Traits:** Specific Ear and Tail types, plus Elemental Affinity.
-    - **📜 Lore & Background:** Random Occupations and Habitats for instant backstory.
-    - **👂 Sensory Details:** Unique scents and voice types for immersive roleplay.
-- **Professional Embeds:** Sophisticated, multi-field Discord layouts with themed emojis.
-- **Slash Commands:** Modern `/fursona` command for easy use.
+- **Apex Character Engine:** Generates high-fidelity character profiles suitable for TTRPGs, art commissions, or deep roleplay.
+- **📊 Dynamic Stat System:** Randomly generates stats for STR, AGI, INT, CHA, LCK, and FLF (Fluffiness).
+- **👗 Multi-Layer Wardrobe:** Complete outfit generation including Head, Neck, Torso, Legs, and signature Accessories.
+- **🧠 Social & Life Lore:** Includes Social Class, Motivations, and ambitious Life Goals.
+- **🗣️ Verbal Nuance:** Unique Speech Patterns combined with Sensory Scents and Voice types.
+- **💾 Advanced Save System:** Save and browse your Apex character collection with a professional paginated viewer.
+- **Infinite Variety:** Hundreds of species and millions of high-detail trait combinations.
 
 ## 🚀 Getting Started
 

@@ -73,25 +73,30 @@ client.on('interactionCreate', async interaction => {
 			const fields = embed.fields;
 			const fursonaData = {
 				species: fields[0].value.split('\n')[0].replace('**Species:** ', ''),
-				personality: fields[0].value.split('\n')[1].replace('**Personality:** ', ''),
-				habitat: fields[0].value.split('\n')[2].replace('**Home:** ', ''),
-				pattern: fields[1].value.split('\n')[0].replace('**Pattern:** ', ''),
-				primaryColor: fields[1].value.split('\n')[1].replace('**Primary:** ', ''),
-				secondaryColor: fields[1].value.split('\n')[2].replace('**Secondary:** ', ''),
-				eyeColor: fields[1].value.split('\n')[3].replace('**Eyes:** ', ''),
-				height: fields[2].value.split('\n')[0].replace('**Height:** ', ''),
-				texture: fields[2].value.split('\n')[1].replace('**Texture:** ', ''),
-				scar: fields[2].value.split('\n')[2].replace('**Marking:** ', ''),
-				motivation: fields[3].value.split('\n')[0].replace('**Motivation:** ', ''),
-				flaw: fields[3].value.split('\n')[1].replace('**Flaw:** ', ''),
-				fear: fields[3].value.split('\n')[2].replace('**Fear:** ', ''),
-				power: fields[4].value.split('\n')[0].replace('**Power:** ', ''),
-				skill: fields[4].value.split('\n')[1].replace('**Talent:** ', ''),
+				socialStatus: fields[0].value.split('\n')[1].replace('**Social Class:** ', ''),
+				personality: fields[0].value.split('\n')[2].replace('**Personality:** ', ''),
+				
+				primaryColor: fields[1].value.split('\n')[0].replace('**Primary:** ', ''),
+				secondaryColor: fields[1].value.split('\n')[1].replace('**Secondary:** ', ''),
+				pattern: fields[1].value.split('\n')[2].replace('**Pattern:** ', ''),
+				texture: fields[1].value.split('\n')[3].replace('**Texture:** ', ''),
+				
+				stats: fields[2].value, // Save raw stats string
+				
+				head: fields[3].value.split('\n')[0].replace('**Head:** ', ''),
+				neck: fields[3].value.split('\n')[1].replace('**Neck:** ', ''),
+				torso: fields[3].value.split('\n')[2].replace('**Torso:** ', ''),
+				legs: fields[3].value.split('\n')[3].replace('**Legs:** ', ''),
+				accessory: fields[3].value.split('\n')[4].replace('**Item:** ', ''),
+				
+				motivation: fields[4].value.split('\n')[0].replace('**Motivation:** ', ''),
+				lifeGoal: fields[4].value.split('\n')[1].replace('**Life Goal:** ', ''),
+				
 				voice: fields[5].value.split('\n')[0].replace('**Voice:** ', ''),
-				scent: fields[5].value.split('\n')[1].replace('**Scent:** ', ''),
-				secret: fields[6].value.split('\n')[0].replace('**Secret:** ', ''),
-				item: fields[6].value.split('\n')[1].replace('**Signature Item:** ', ''),
-				quirk: fields[7].value
+				speech: fields[5].value.split('\n')[1].replace('**Speech:** ', ''),
+				scent: fields[5].value.split('\n')[2].replace('**Scent:** ', ''),
+				
+				quirk: fields[6].value
 			};
 
 			const success = saveToUser(interaction.user.id, fursonaData);
