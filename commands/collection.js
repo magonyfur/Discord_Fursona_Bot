@@ -21,13 +21,14 @@ module.exports = {
                 .setTitle(`Saved Fursona #${index + 1}`)
                 .setDescription(`**Saved on:** ${new Date(fursona.savedAt).toLocaleDateString()}`)
                 .addFields(
-                    { name: '🧬 Identity & Social', value: `**Species:** ${fursona.species}\n**Social Class:** ${fursona.socialStatus}\n**Personality:** ${fursona.personality}`, inline: false },
-                    { name: '🎨 Visual Palette', value: `**Primary:** ${fursona.primaryColor}\n**Secondary:** ${fursona.secondaryColor}\n**Pattern:** ${fursona.pattern}\n**Texture:** ${fursona.texture}`, inline: true },
-                    { name: '📊 Character Stats', value: fursona.stats, inline: true },
-                    { name: '👗 Multi-Layer Wardrobe', value: `**Head:** ${fursona.head}\n**Neck:** ${fursona.neck}\n**Torso:** ${fursona.torso}\n**Legs:** ${fursona.legs}\n**Item:** ${fursona.accessory}`, inline: false },
-                    { name: '🧠 Psych & Lore', value: `**Motivation:** ${fursona.motivation}\n**Life Goal:** ${fursona.lifeGoal}`, inline: true },
-                    { name: '👂 Sensory & Verbal', value: `**Voice:** ${fursona.voice}\n**Speech:** ${fursona.speech}\n**Scent:** ${fursona.scent}`, inline: true },
-                    { name: '⭐ Unique Quirk', value: fursona.quirk, inline: false }
+                    { name: '🌐 Origin & Moral Code', value: `**Home World:** ${fursona.origin}\n**Alignment:** ${fursona.alignment}\n**Reputation:** ${fursona.reputation}`, inline: false },
+                    { name: '🧬 Biological Essence', value: `**Species:** ${fursona.species}\n**Personality:** ${fursona.personality}\n**Element:** ${fursona.element}`, inline: true },
+                    { name: '🦴 Advanced Physiology', value: `**Blood:** ${fursona.blood}\n**Source:** ${fursona.source}\n**Height:** ${fursona.height}`, inline: true },
+                    { name: '🎨 Visual Matrix', value: `**Primary:** ${fursona.primaryColor}\n**Secondary:** ${fursona.secondaryColor}\n**Pattern:** ${fursona.pattern}`, inline: true },
+                    { name: '📊 Multiverse Stats', value: fursona.stats, inline: false },
+                    { name: '📜 Defining Life Event', value: fursona.lifeEvent, inline: false },
+                    { name: '👂 Sensory Signature', value: `**Voice:** ${fursona.voice}\n**Scent:** ${fursona.scent}`, inline: true },
+                    { name: '⭐ Singular Quirk', value: fursona.quirk, inline: true }
                 )
                 .setFooter({ text: `Page ${index + 1} of ${saves.length} | Your Collection` });
         };

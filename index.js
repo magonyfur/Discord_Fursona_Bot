@@ -72,31 +72,29 @@ client.on('interactionCreate', async interaction => {
 			// Extract data from embed fields
 			const fields = embed.fields;
 			const fursonaData = {
-				species: fields[0].value.split('\n')[0].replace('**Species:** ', ''),
-				socialStatus: fields[0].value.split('\n')[1].replace('**Social Class:** ', ''),
-				personality: fields[0].value.split('\n')[2].replace('**Personality:** ', ''),
+				origin: fields[0].value.split('\n')[0].replace('**Home World:** ', ''),
+				alignment: fields[0].value.split('\n')[1].replace('**Alignment:** ', ''),
+				reputation: fields[0].value.split('\n')[2].replace('**Reputation:** ', ''),
 				
-				primaryColor: fields[1].value.split('\n')[0].replace('**Primary:** ', ''),
-				secondaryColor: fields[1].value.split('\n')[1].replace('**Secondary:** ', ''),
-				pattern: fields[1].value.split('\n')[2].replace('**Pattern:** ', ''),
-				texture: fields[1].value.split('\n')[3].replace('**Texture:** ', ''),
+				species: fields[1].value.split('\n')[0].replace('**Species:** ', ''),
+				personality: fields[1].value.split('\n')[1].replace('**Personality:** ', ''),
+				element: fields[1].value.split('\n')[2].replace('**Element:** ', ''),
 				
-				stats: fields[2].value, // Save raw stats string
+				blood: fields[2].value.split('\n')[0].replace('**Blood:** ', ''),
+				source: fields[2].value.split('\n')[1].replace('**Source:** ', ''),
+				height: fields[2].value.split('\n')[2].replace('**Height:** ', ''),
 				
-				head: fields[3].value.split('\n')[0].replace('**Head:** ', ''),
-				neck: fields[3].value.split('\n')[1].replace('**Neck:** ', ''),
-				torso: fields[3].value.split('\n')[2].replace('**Torso:** ', ''),
-				legs: fields[3].value.split('\n')[3].replace('**Legs:** ', ''),
-				accessory: fields[3].value.split('\n')[4].replace('**Item:** ', ''),
+				primaryColor: fields[3].value.split('\n')[0].replace('**Primary:** ', ''),
+				secondaryColor: fields[3].value.split('\n')[1].replace('**Secondary:** ', ''),
+				pattern: fields[3].value.split('\n')[2].replace('**Pattern:** ', ''),
 				
-				motivation: fields[4].value.split('\n')[0].replace('**Motivation:** ', ''),
-				lifeGoal: fields[4].value.split('\n')[1].replace('**Life Goal:** ', ''),
+				stats: fields[4].value,
+				lifeEvent: fields[5].value,
 				
-				voice: fields[5].value.split('\n')[0].replace('**Voice:** ', ''),
-				speech: fields[5].value.split('\n')[1].replace('**Speech:** ', ''),
-				scent: fields[5].value.split('\n')[2].replace('**Scent:** ', ''),
+				voice: fields[6].value.split('\n')[0].replace('**Voice:** ', ''),
+				scent: fields[6].value.split('\n')[1].replace('**Scent:** ', ''),
 				
-				quirk: fields[6].value
+				quirk: fields[7].value
 			};
 
 			const success = saveToUser(interaction.user.id, fursonaData);

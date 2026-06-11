@@ -6,13 +6,14 @@ A fun and simple Discord bot that generates unique, detailed fursona description
 
 - **Save Collection:** Save your favorite generations to your personal collection with a single click.
 - **Manage Collection:** View and cycle through your saved fursonas anytime with `/collection`.
-- **Apex Character Engine:** Generates high-fidelity character profiles suitable for TTRPGs, art commissions, or deep roleplay.
-- **📊 Dynamic Stat System:** Randomly generates stats for STR, AGI, INT, CHA, LCK, and FLF (Fluffiness).
-- **👗 Multi-Layer Wardrobe:** Complete outfit generation including Head, Neck, Torso, Legs, and signature Accessories.
-- **🧠 Social & Life Lore:** Includes Social Class, Motivations, and ambitious Life Goals.
-- **🗣️ Verbal Nuance:** Unique Speech Patterns combined with Sensory Scents and Voice types.
-- **💾 Advanced Save System:** Save and browse your Apex character collection with a professional paginated viewer.
-- **Infinite Variety:** Hundreds of species and millions of high-detail trait combinations.
+- **🌌 Multiverse Character Architect:** Generates sentient entities with planetary origins, moral alignments, and complex biological lore.
+- **🌐 Dimensional Origins:** Includes home worlds ranging from Cyber-Industrial planets to Ancient Magical Realms.
+- **⚖️ Moral Alignments:** Uses a refined 9-point alignment system (Lawful Good to Chaotic Evil).
+- **🦴 Advanced Physiology:** High-detail biology including Blood Color and unique Magic Sources (Mana Core, Digital Glitch, etc.).
+- **📜 Defining Life Events:** Generates a pivotal moment that shaped the character's history.
+- **📊 Multiverse Stats:** Power-scaled stats (STR, AGI, INT, CHA, LCK, PWR) for dimensional consistency.
+- **💾 Dimensional Archive:** Save and browse your multiversal collection with an advanced paginated viewer.
+- **Infinite Variety:** Countless species and billions of complex biographical combinations.
 
 ## 🚀 Getting Started
 

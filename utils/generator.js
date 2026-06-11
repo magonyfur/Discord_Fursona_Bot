@@ -27,21 +27,42 @@ const patterns = [
     'Solid', 'Spotted', 'Striped', 'Brindle', 'Gradient', 'Piebald', 'Rosettes', 'Marbled', 'Speckled', 'Vibrant Markings', 'Glowing Runes', 'Starry/Galaxy', 'Socks and Mittens', 'Underbelly Fade', 'Points (Ears/Tail/Paws)', 'Vitiligo-style Patches', 'Dappled', 'Symmetrical Tribal Tattoos', 'Bioluminescent Veins', 'Splattered Paint Look', 'Geometric Accents', 'Honeycomb Pattern', 'Circuitry Lines', 'Cloud-like Swirls', 'Zebra Stripes', 'Tiger Stripes', 'Cheetah Spots', 'Iridescent Sheen', 'Oil Slick', 'Lace-like Markings', 'Fractal Designs', 'Camo', 'Faded Newspaper Texture'
 ];
 
-const wardrobe = {
-    head: ['None', 'Wide-brimmed Hat', 'Beanie with ear holes', 'Crown of Flowers', 'Aviator Goggles', 'Snapback Cap', 'Pointy Wizard Hat', 'VR Headset', 'Golden Circlet', 'Skull Mask', 'Headphones'],
-    neck: ['None', 'Spiked Collar', 'Silk Scarf', 'Heavy Silver Chain', 'Glowing Pendant', 'Colorful Bandana', 'Bowtie', 'Clockwork Choker', 'Leather Cuffs (Neck)', 'Feathered Boa'],
-    torso: ['None', 'Oversized Hoodie', 'Tactical Vest', 'Formal Waistcoat', 'Battered Leather Jacket', 'Hawaiian Shirt', 'Tattered Cloak', 'High-tech Armor Plate', 'Crop Top', 'Vintage Cardigan', 'Flannel Shirt'],
-    legs: ['None', 'Cargo Shorts', 'Skinny Jeans', 'Baggy Techwear Pants', 'Formal Slacks', 'Distressed Denim', 'Leg Warmers', 'Armor Greaves', 'Skirt with frills', 'Kilt', 'Cybernetic Braces'],
-    accessory: ['None', 'Messenger Bag', 'Staff of Power', 'Holographic Wrist-pad', 'Nunchucks', 'Ancient Grimoire', 'Tool Belt', 'Guitar strapped to back', 'Plushie in pocket', 'Sheathed Dagger', 'Energy Shield']
+const advancedPhysiology = {
+    blood: ['Crimson Red', 'Neon Blue', 'Glowing Gold', 'Deep Violet', 'Clear/Transparent', 'Black Oil', 'Silver Mercury', 'Green Acid'],
+    magicSource: ['Internal Mana Core', 'Ancient Bloodline', 'Technological Augmentation', 'Celestial Blessing', 'Planetary Energy', 'Contract with a Spirit', 'Chaos/Digital Glitch', 'Natural Connection to Elements'],
+    measurements: {
+        heights: ['120cm (Tiny)', '155cm (Short)', '175cm (Average)', '190cm (Tall)', '215cm (Towering)', '250cm+ (Giant)'],
+        weights: ['Light/Featherweight', 'Lean/Athletic', 'Heavy/Burly', 'Average Build', 'Stocky/Solid']
+    }
 };
 
-const psychology = {
-    motivations: ['Finding a lost family heirloom', 'Becoming a world-renowned artist', 'Protecting the weak', 'Seeking ultimate knowledge', 'Rebuilding a fallen kingdom', 'Living a quiet life in nature', 'Toppling a corrupt corporation', 'Mapping the entire galaxy', 'Mastering the culinary arts'],
-    goals: ['To find true love', 'To invent a new form of energy', 'To win a legendary tournament', 'To make everyone smile', 'To be the first of their kind in space', 'To write a best-selling novel', 'To start a successful business'],
-    social: ['Reclusive Hermit', 'High-society Socialite', 'Street-smart Rogue', 'Respected Village Elder', 'Famous Internet Celebrity', 'Humble Apprentice', 'Exiled Royalty', 'Middle-class Professional', 'Roaming Nomad']
-};
+const morality = [
+    'Lawful Good (Crusader)', 'Neutral Good (Benefactor)', 'Chaotic Good (Rebel)',
+    'Lawful Neutral (Judge)', 'True Neutral (Undecided)', 'Chaotic Neutral (Free Spirit)',
+    'Lawful Evil (Dominator)', 'Neutral Evil (Malefactor)', 'Chaotic Evil (Destroyer)'
+];
 
-const speech = ['Talks in technical jargon', 'Uses many "furry" puns', 'Extremely formal and polite', 'Speaks in short, clipped sentences', 'Slow and thoughtful', 'Very fast and excitable', 'Whispers almost constantly', 'Sings their words', 'Uses heavy slang', 'Dry and sarcastic'];
+const reputation = [
+    'Beloved Hero of the People', 'Feared Urban Legend', 'Notorious Trouble-maker',
+    'Respected Intellectual', 'Mysterious Shadow Figure', 'Commoner among Elite',
+    'Exiled Outcast', 'Rising Star of the Arena', 'Humble Saint'
+];
+
+const lifeEvents = [
+    'Witnessed a falling star that changed their DNA', 'Lost everything in a great fire and rebuilt',
+    'Discovered an ancient relic in a hidden cave', 'Was the only survivor of a space station disaster',
+    'Won a legendary duel that earned them their weapon', 'Escaped from a high-security research facility',
+    'Traveled through a rift into another dimension', 'Athelete who broke a world record using magic',
+    'Saved a powerful spirit who now protects them'
+];
+
+const elements = [
+    'Inferno (Fire)', 'Glacier (Ice)', 'Storm (Lightning)', 'Quake (Earth)', 'Cyclone (Air)', 'Abyss (Shadow)', 'Nova (Light)', 'Quantum (Space)', 'Verdant (Nature)', 'Clockwork (Metal)', 'Plasma (Energy)', 'Void (Nothingness)'
+];
+
+const origins = [
+    'Cyber-Industrial Mega-Planet', 'Ancient Magical Realm', 'Post-Apocalyptic Earth', 'Utopian Floating City', 'Nomadic Space Fleet', 'Inter-dimensional Nexus', 'Deep-sea Abyss City', 'Subterranean Kingdom'
+];
 
 function getRandomElement(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -49,12 +70,13 @@ function getRandomElement(array) {
 
 function generateStats() {
     return {
-        STR: Math.floor(Math.random() * 10) + 1,
-        AGI: Math.floor(Math.random() * 10) + 1,
-        INT: Math.floor(Math.random() * 10) + 1,
-        CHA: Math.floor(Math.random() * 10) + 1,
-        LCK: Math.floor(Math.random() * 10) + 1,
-        FLF: Math.floor(Math.random() * 10) + 1 // Fluffiness
+        STR: Math.floor(Math.random() * 20) + 1,
+        AGI: Math.floor(Math.random() * 20) + 1,
+        INT: Math.floor(Math.random() * 20) + 1,
+        CHA: Math.floor(Math.random() * 20) + 1,
+        LCK: Math.floor(Math.random() * 20) + 1,
+        FLF: Math.floor(Math.random() * 20) + 1,
+        PWR: Math.floor(Math.random() * 20) + 1 // Power Level
     };
 }
 
@@ -62,35 +84,33 @@ function generateFursona() {
     return {
         // Core
         species: getRandomElement(species),
-        pattern: getRandomElement(patterns),
+        alignment: getRandomElement(morality),
+        origin: getRandomElement(origins),
+        personality: getRandomElement(['Shy', 'Energetic', 'Grumpy', 'Mischievous', 'Clumsy', 'Sophisticated', 'Cuddly', 'Adventurous', 'Lazy', 'Cheerful', 'Stoic', 'Sarcastic', 'Anxious', 'Confident', 'Dreamy', 'Hyperactive', 'Gentle', 'Flirtatious', 'Studious', 'Rebellious', 'Mysterious', 'Kind-hearted', 'Eccentric', 'Philosophical', 'Protective', 'Ambitious', 'Carefree', 'Whimsical', 'Charismatic', 'Apathetic', 'Determined']),
+        
+        // Appearance
         primaryColor: getRandomElement(colors),
         secondaryColor: getRandomElement(colors),
+        pattern: getRandomElement(patterns),
         eyeColor: getRandomElement(colors),
-        personality: getRandomElement(['Shy', 'Energetic', 'Grumpy', 'Mischievous', 'Clumsy', 'Sophisticated', 'Cuddly', 'Adventurous', 'Lazy', 'Cheerful', 'Stoic', 'Sarcastic', 'Anxious', 'Confident', 'Dreamy', 'Hyperactive', 'Gentle', 'Flirtatious', 'Studious', 'Rebellious', 'Mysterious', 'Kind-hearted', 'Eccentric', 'Philosophical', 'Protective', 'Ambitious', 'Carefree', 'Whimsical', 'Charismatic', 'Apathetic', 'Determined']),
+        
+        // Physiology
+        height: getRandomElement(advancedPhysiology.measurements.heights),
+        weight: getRandomElement(advancedPhysiology.measurements.weights),
+        blood: getRandomElement(advancedPhysiology.blood),
+        source: getRandomElement(advancedPhysiology.magicSource),
+        
+        // Status & Lore
+        reputation: getRandomElement(reputation),
+        lifeEvent: getRandomElement(lifeEvents),
+        element: getRandomElement(elements),
         
         // Stats
         stats: generateStats(),
-
-        // Wardrobe
-        head: getRandomElement(wardrobe.head),
-        neck: getRandomElement(wardrobe.neck),
-        torso: getRandomElement(wardrobe.torso),
-        legs: getRandomElement(wardrobe.legs),
-        accessory: getRandomElement(wardrobe.accessory),
         
-        // Social & Bio
-        socialStatus: getRandomElement(psychology.social),
-        lifeGoal: getRandomElement(psychology.goals),
-        motivation: getRandomElement(psychology.motivations),
-        
-        // Verbal
-        speech: getRandomElement(speech),
+        // Sensory & Personal
         voice: getRandomElement(['Deep and Gravelly', 'Soft and Melodic', 'Raspy Whisper', 'Energetic and High-pitched', 'Calm and Monotone', 'Cheerful and Bubbly', 'Sultry and Smooth', 'Robotically Modulated', 'Slightly echoey', 'Warm and comforting']),
         scent: getRandomElement(['Fresh Rain and Pine', 'Old Books and Vanilla', 'Gunpowder and Ozone', 'Strawberries and Cream', 'Sandalwood and Spice', 'Sea Salt and Citrus', 'Coffee and Morning Mist', 'Lavender and Honey', 'Burnt Sugar and Smoke', 'Freshly Cut Grass', 'New Parchment', 'Peppermint and Snow']),
-
-        // Physical Misc
-        texture: getRandomElement(['Extremely soft', 'Coarse', 'Sleek', 'Slightly warm', 'Silky', 'Rough', 'Thick and wooly']),
-        height: getRandomElement(['Remarkably tall', 'Dainty and small', 'Average/Muscular', 'Short and stout', 'Lanky', 'Compact and agile']),
         
         quirk: getRandomElement(['Wears a colorful bandana', 'Has a mechanical arm', 'Always carries a sketchbook', 'Loves drinking coffee', 'Has glow-in-the-dark markings', 'Wears oversized hoodies', 'Is a huge fan of retro games', 'Has mismatched eyes', 'Always has a plushie with them', 'Talks to plants', 'Is obsessed with space', 'Has a very long, fluffy tail', 'Wears round glasses', 'Has a collection of shiny rocks', 'Can never find their keys', 'Has a holographic display on their visor', 'Wears a spiked collar', 'Has wings that are too small for flight', 'Always has headphones on', 'Is surprisingly good at cooking', 'Has a secret talent for singing', 'Purrs when happy', 'Hoards shiny objects', 'Has a distinctive scar over one eye', 'Is always covered in glitter', 'Sneezes like a kitten', 'Has tiny horns hidden in fur', 'Tail wags uncontrollably', 'Afraid of vacuum cleaners', 'Always smells like cinnamon', 'Can see ghosts', 'Collects vintage postcards', 'Can only sleep while hanging upside down'])
     };
