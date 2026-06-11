@@ -11,17 +11,19 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setColor(0x0099FF)
             .setTitle('✨ Your New Fursona ✨')
-            .setDescription('Here is a randomly generated fursona just for you!')
+            .setDescription('Here is a unique, randomly generated fursona just for you!')
             .addFields(
                 { name: 'Species', value: fursona.species, inline: true },
                 { name: 'Personality', value: fursona.personality, inline: true },
+                { name: 'Pattern', value: fursona.pattern, inline: true },
                 { name: 'Primary Color', value: fursona.primaryColor, inline: true },
                 { name: 'Secondary Color', value: fursona.secondaryColor, inline: true },
                 { name: 'Eye Color', value: fursona.eyeColor, inline: true },
-                { name: 'Quirk/Accessory', value: fursona.quirk }
+                { name: 'Quirk/Accessory', value: fursona.quirk, inline: false },
+                { name: 'Hobby', value: fursona.hobby, inline: false }
             )
             .setTimestamp()
-            .setFooter({ text: 'Fursona Generator Bot' });
+            .setFooter({ text: 'Fursona Generator Bot | Keep rolling for more!' });
 
         await interaction.reply({ embeds: [embed] });
     },
