@@ -74,20 +74,24 @@ client.on('interactionCreate', async interaction => {
 			const fursonaData = {
 				species: fields[0].value.split('\n')[0].replace('**Species:** ', ''),
 				personality: fields[0].value.split('\n')[1].replace('**Personality:** ', ''),
-				aesthetic: fields[0].value.split('\n')[2].replace('**Aesthetic:** ', ''),
+				habitat: fields[0].value.split('\n')[2].replace('**Home:** ', ''),
 				pattern: fields[1].value.split('\n')[0].replace('**Pattern:** ', ''),
 				primaryColor: fields[1].value.split('\n')[1].replace('**Primary:** ', ''),
 				secondaryColor: fields[1].value.split('\n')[2].replace('**Secondary:** ', ''),
-				eyeColor: fields[1].value.split('\n')[3].replace('**Eyes:** ', '').split(' (')[0],
-				pupils: fields[1].value.split('\n')[3].match(/\((.*)\)/)?.[1] || 'Standard',
-				ears: fields[2].value.split('\n')[0].replace('**Ears:** ', ''),
-				tail: fields[2].value.split('\n')[1].replace('**Tail:** ', ''),
-				element: fields[2].value.split('\n')[2].replace('**Element:** ', ''),
-				occupation: fields[3].value.split('\n')[0].replace('**Occupation:** ', ''),
-				habitat: fields[3].value.split('\n')[1].replace('**Home:** ', ''),
-				voice: fields[4].value.split('\n')[0].replace('**Voice:** ', ''),
-				scent: fields[4].value.split('\n')[1].replace('**Scent:** ', ''),
-				quirk: fields[5].value
+				eyeColor: fields[1].value.split('\n')[3].replace('**Eyes:** ', ''),
+				height: fields[2].value.split('\n')[0].replace('**Height:** ', ''),
+				texture: fields[2].value.split('\n')[1].replace('**Texture:** ', ''),
+				scar: fields[2].value.split('\n')[2].replace('**Marking:** ', ''),
+				motivation: fields[3].value.split('\n')[0].replace('**Motivation:** ', ''),
+				flaw: fields[3].value.split('\n')[1].replace('**Flaw:** ', ''),
+				fear: fields[3].value.split('\n')[2].replace('**Fear:** ', ''),
+				power: fields[4].value.split('\n')[0].replace('**Power:** ', ''),
+				skill: fields[4].value.split('\n')[1].replace('**Talent:** ', ''),
+				voice: fields[5].value.split('\n')[0].replace('**Voice:** ', ''),
+				scent: fields[5].value.split('\n')[1].replace('**Scent:** ', ''),
+				secret: fields[6].value.split('\n')[0].replace('**Secret:** ', ''),
+				item: fields[6].value.split('\n')[1].replace('**Signature Item:** ', ''),
+				quirk: fields[7].value
 			};
 
 			const success = saveToUser(interaction.user.id, fursonaData);

@@ -9,19 +9,21 @@ module.exports = {
         const fursona = generateFursona();
 
         const embed = new EmbedBuilder()
-            .setColor(0xFF4488)
-            .setTitle('🦊 The Ultimate Fursona Generator 🐉')
-            .setDescription('**A deeply detailed character profile has been synthesized.**')
+            .setColor(0xAA00FF)
+            .setTitle('💎 The Infinite Fursona Synthesis 💎')
+            .setDescription('**A high-fidelity character profile has been generated from the digital ether.**')
             .addFields(
-                { name: '🧬 Basic Info', value: `**Species:** ${fursona.species}\n**Personality:** ${fursona.personality}\n**Aesthetic:** ${fursona.aesthetic}`, inline: false },
-                { name: '🎨 Appearance', value: `**Pattern:** ${fursona.pattern}\n**Primary:** ${fursona.primaryColor}\n**Secondary:** ${fursona.secondaryColor}\n**Eyes:** ${fursona.eyeColor} (${fursona.pupils})`, inline: true },
-                { name: '🦴 Physical Traits', value: `**Ears:** ${fursona.ears}\n**Tail:** ${fursona.tail}\n**Element:** ${fursona.element}`, inline: true },
-                { name: '📜 Lore & Background', value: `**Occupation:** ${fursona.occupation}\n**Home:** ${fursona.habitat}`, inline: false },
-                { name: '👂 Sensory Details', value: `**Voice:** ${fursona.voice}\n**Scent:** ${fursona.scent}`, inline: true },
+                { name: '🧬 Basic Info', value: `**Species:** ${fursona.species}\n**Personality:** ${fursona.personality}\n**Home:** ${fursona.habitat}`, inline: false },
+                { name: '🎨 Appearance', value: `**Pattern:** ${fursona.pattern}\n**Primary:** ${fursona.primaryColor}\n**Secondary:** ${fursona.secondaryColor}\n**Eyes:** ${fursona.eyeColor}`, inline: true },
+                { name: '🦴 Physical Nuances', value: `**Height:** ${fursona.height}\n**Texture:** ${fursona.texture}\n**Marking:** ${fursona.scar}`, inline: true },
+                { name: '🧠 Psychology', value: `**Motivation:** ${fursona.motivation}\n**Flaw:** ${fursona.flaw}\n**Fear:** ${fursona.fear}`, inline: false },
+                { name: '⚔️ Abilities & Skills', value: `**Power:** ${fursona.power}\n**Talent:** ${fursona.skill}`, inline: true },
+                { name: '👂 Sensory', value: `**Voice:** ${fursona.voice}\n**Scent:** ${fursona.scent}`, inline: true },
+                { name: '📜 Deep Lore', value: `**Secret:** ${fursona.secret}\n**Signature Item:** ${fursona.item}`, inline: false },
                 { name: '⭐ Unique Quirk', value: fursona.quirk, inline: true }
             )
             .setTimestamp()
-            .setFooter({ text: 'Fursona Generator Bot | Infinite Possibilities' });
+            .setFooter({ text: 'Fursona Generator Bot | The Ultimate Character Engine' });
 
         const saveButton = new ButtonBuilder()
             .setCustomId('save_fursona')
