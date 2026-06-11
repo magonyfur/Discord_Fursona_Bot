@@ -1,141 +1,241 @@
-# 🐾 Discord Fursona Bot
+# 🐾 Discord Fursona Bot v2.0
 
-A fun Discord bot that generates unique fursonas with species, colors, patterns, personalities, accessories, and backstories!
+A feature-rich Discord bot that generates unique fursonas with a **rarity system**, **persistent collections**, **user profiles**, **trading**, and **leaderboards**!
 
-## ✨ Features
+## ✨ Major Features
 
-- **Random Generation**: Creates unique fursonas with 60+ species, 24 colors, 22 patterns, 18 eye colors, 25 personalities, 30+ accessories, and 15 backstories
-- **Interactive Buttons**: Regenerate, save to DMs, or share in-channel
-- **Color Preview**: Visual color swatches for base, secondary, accent, and eye colors
-- **Slash Commands**: Modern Discord slash command interface
-- **Ephemeral Help**: Private help and species list commands
+### 🎲 **Fursona Generation**
+- **60+ Species** across 5 rarities (Common → Legendary)
+- **24 Patterns** with rarity (Solid, Tabby, Merle, Harlequin, etc.)
+- **Procedural Colors** by rarity tier (Common → Legendary palettes)
+- **3 Personality Traits** from 30+ options
+- **1-4 Accessories** from 40+ items
+- **Special Traits** (Heterochromia, Wings, Elemental Affinity, etc.)
+- **20 Unique Backstories**
+
+### 💎 **Rarity System**
+| Rarity | Emoji | Color | Species Examples | Drop Rate |
+|--------|-------|-------|------------------|-----------|
+| Common | ⚪ | Gray | Wolf, Fox, Cat, Dog, Rabbit | 50% |
+| Uncommon | 🟢 | Green | Hyena, Panther, Husky, Siamese | 25% |
+| Rare | 🔵 | Blue | Bengal, Red Panda, Arctic Fox | 15% |
+| Epic | 🟣 | Purple | Fennec Fox, Sphynx, Maine Coon | 8% |
+| Legendary | 🟡 | Gold | **Dragon** | 2% |
+
+Higher rarity = better colors, more special traits, unique species!
+
+### 📚 **Persistent Collection**
+- **JSON-based storage** (no database setup required)
+- Save up to **200 fursonas** per user
+- **Favorite** up to 5 special fursonas
+- **Rename** and **delete** your fursonas
+- View collection with **pagination**
+
+### 👤 **User Profiles**
+- Total fursonas generated
+- Rarity breakdown (Legendary/Epic/Rare/Uncommon/Common counts)
+- Unique species discovered
+- Favorite fursona showcase
+- Stats tracked automatically
+
+### 🔄 **Trading System**
+- Propose trades with other users
+- Offer one of your fursonas for one of theirs
+- **Gift mode** (offer without requesting return)
+- 5-minute acceptance window
+- Automatic ownership transfer on acceptance
+- Trade history logged
+
+### 🏆 **Leaderboards**
+- Global rankings by collection size
+- See your rank among all users
+- Species popularity tracking
+
+### ✨ **Custom Fursona Creator**
+- Modal form for personalized creation
+- Choose name, species, pattern, backstory
+- Instantly saved to collection
+
+### 🎨 **Beautiful Embeds**
+- Color preview swatches (Base/Secondary/Accent/Eye)
+- Rarity-colored embeds with emojis
+- Interactive buttons for all actions
+- Clean, organized layouts
 
 ## 🚀 Quick Start
 
-### 1. Create a Discord Application
+### 1. Create Discord Application
 1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
-2. Click "New Application" → Give it a name
-3. Go to **Bot** tab → Click "Add Bot"
-4. Copy the **Token** (you'll need this)
-5. Copy the **Application ID** (Client ID)
-6. Enable **Message Content Intent** and **Server Members Intent** under Privileged Gateway Intents
+2. "New Application" → Name it
+3. **Bot** tab → "Add Bot"
+4. Copy **Token** and **Application ID (Client ID)**
+5. Enable **Message Content Intent** & **Server Members Intent**
+6. OAuth2 → URL Generator → `bot` + `applications.commands` scopes
+7. Invite to your server
 
-### 2. Configure the Bot
+### 2. Configure
 ```bash
 cd D:\Discord_Fursona_Bot_Hermes
 copy .env.example .env
 ```
 
-Edit `.env` with your credentials:
+Edit `.env`:
 ```env
 DISCORD_TOKEN=your_bot_token_here
 CLIENT_ID=your_application_id_here
 GUILD_ID=your_test_server_id_here  # Optional: for instant command updates
 ```
 
-### 3. Install Dependencies
+### 3. Install & Deploy
 ```bash
 npm install
+npm run deploy
 ```
 
-### 4. Deploy Slash Commands
+### 4. Run
 ```bash
-# For development (instant updates to a specific server)
-node deploy-commands.js
-
-# For production (global, takes up to 1 hour)
-# Remove GUILD_ID from .env first, then run:
-node deploy-commands.js
-```
-
-### 5. Run the Bot
-```bash
-# Production
-npm start
-
-# Development (auto-restart on changes)
-npm run dev
+npm start        # Production
+npm run dev      # Development (auto-restart)
 ```
 
 ## 📖 Commands
 
 | Command | Description |
 |---------|-------------|
-| `/fursona` | Generate a new random fursona |
-| `/fursona-help` | Show help and button explanations |
-| `/fursona-species` | List all available species (private) |
+| `/fursona generate` | Generate a random fursona |
+| `/fursona custom` | Create a custom fursona (modal) |
+| `/fursona-profile [user]` | View profile & stats |
+| `/fursona-collection [user] [page]` | Browse collection |
+| `/fursona-leaderboard [page]` | Global leaderboard |
+| `/fursona-species` | List all species by rarity |
+| `/fursona-trade <user> <your_fursona> [their_fursona]` | Propose trade |
+| `/fursona-help` | Show this help |
 
-## 🎮 Button Actions
+## 🎮 Interactive Buttons
 
-After generating a fursona, three buttons appear:
-
+After generating a fursona:
 | Button | Action |
 |--------|--------|
-| 🔄 **Regenerate** | Create a completely new random fursona |
-| 💾 **Save** | Send the fursona to your DMs for safekeeping |
-| 📤 **Share** | Post the fursona in the current channel for everyone to see |
+| 🔄 **Regenerate** | New random fursona |
+| 💾 **Save** | Add to permanent collection |
+| 📤 **Share** | Post in channel |
 
-## 🎨 Fursona Components
+For saved fursonas:
+| Button | Action |
+|--------|--------|
+| 💛 **Favorite** | Toggle favorite status |
+| ✏️ **Rename** | Change name via modal |
+| 🗑️ **Delete** | Remove from collection |
 
-Each generated fursona includes:
+Collection navigation:
+| Button | Action |
+|--------|--------|
+| ◀ **Previous** | Previous page |
+| **Next** ▶ | Next page |
+| 🔍 **View Details** | Select menu for details |
 
-- **Name**: Procedurally generated (e.g., "Frostpaw", "Embertail")
-- **Species**: 60+ options (Wolf, Fox, Dragon, Red Panda, etc.)
-- **Age**: 18-500 years
-- **Height/Weight**: Realistic ranges
-- **Colors**: Base, secondary, accent (hex codes with visual preview)
-- **Pattern**: 22 patterns (Solid, Tabby, Merle, Piebald, etc.)
-- **Eye Color**: 18 options
-- **Personality**: 3 random traits from 25 options
-- **Accessories**: 1-3 random items from 30+ options
-- **Special Traits**: 0-2 unique abilities (heterochromia, wings, magic, etc.)
-- **Backstory**: One of 15 narrative hooks
+## 🛠️ Configuration
 
-## 🛠️ Development
+Edit `config.env` to customize:
 
-### Project Structure
+```env
+# Cooldowns (seconds)
+COOLDOWN_GENERATE=10
+COOLDOWN_CUSTOM=30
+COOLDOWN_TRADE=60
+COOLDOWN_PROFILE=5
+
+# Limits
+MAX_FURSONAS_PER_USER=200
+MAX_TRADES_PER_USER=5
+
+# Rarity Weights (must sum to 100)
+RARITY_WEIGHTS_COMMON=50
+RARITY_WEIGHTS_UNCOMMON=25
+RARITY_WEIGHTS_RARE=15
+RARITY_WEIGHTS_EPIC=8
+RARITY_WEIGHTS_LEGENDARY=2
+
+# Feature Flags
+ENABLE_TRADING=true
+ENABLE_PROFILES=true
+ENABLE_LEADERBOARD=true
+ENABLE_CUSTOM_FURSONA=true
+ENABLE_FAVORITES=true
+ENABLE_COLLECTION=true
+```
+
+### Species Rarity
+Edit `SPECIES_RARITY` in `config.env`:
+```
+SPECIES_RARITY=Wolf:common,Fox:common,Dragon:legendary,...
+```
+
+### Colors by Rarity
+Customize `COLOR_COMMON`, `COLOR_UNCOMMON`, `COLOR_RARE`, `COLOR_EPIC`, `COLOR_LEGENDARY` with hex codes.
+
+## 📁 Project Structure
 ```
 Discord_Fursona_Bot_Hermes/
-├── index.js           # Main bot entry point
-├── fursona.js         # Fursona generation logic & data
-├── deploy-commands.js # Slash command registration
-├── package.json       # Dependencies & scripts
-├── .env               # Your credentials (not committed)
-└── .env.example       # Template for .env
+├── index.js              # Main bot entry point
+├── fursona.js            # Generation logic, embeds, modals, rarity
+├── database.js           # JSON file storage (users, fursonas, trades)
+├── config.js             # Configuration loader
+├── config.env            # All customizable settings
+├── deploy-commands.js    # Slash command registration
+├── package.json          # Dependencies & scripts
+├── .env                  # Credentials (not committed)
+├── .env.example          # Template
+├── README.md             # This file
+└── data/                 # Auto-created JSON storage
+    ├── users.json
+    ├── fursonas.json
+    └── trades.json
 ```
 
-### Adding New Species
-Edit `fursona.js` and add to the `SPECIES` array:
+## 🔧 Development
+
+### Adding Species
+Edit `SPECIES` array in `fursona.js` and add rarity in `config.env`:
 ```javascript
-const SPECIES = [
-  'Wolf', 'Fox', 'Cat', 'YourNewSpecies', // ...
-];
+// fursona.js
+const SPECIES = [..., 'YourSpecies'];
+
+// config.env
+SPECIES_RARITY=...,YourSpecies:rare
 ```
 
-### Adding New Colors/Patterns/Traits
-Similarly edit the respective arrays in `fursona.js`.
+### Adding Patterns/Traits/Colors
+Similarly edit arrays in `fursona.js` and corresponding config sections.
 
-## 🔧 Troubleshooting
+### Custom Backstories
+Add to `BACKSTORIES` array in `fursona.js`.
+
+## 🐛 Troubleshooting
 
 **"DISCORD_TOKEN not found"**
-- Make sure `.env` exists and has `DISCORD_TOKEN=your_token`
+- Ensure `.env` exists with valid token
 
-**"Invalid Form Body" on command deploy**
-- Check that `CLIENT_ID` is correct in `.env`
-- For guild deployment, verify `GUILD_ID` is a valid server ID where the bot is added
+**"Invalid Form Body" on deploy**
+- Check `CLIENT_ID` in `.env`
+- For guild deploy, verify `GUILD_ID` is correct
 
 **Buttons don't work**
-- Ensure the bot has `applications.commands` scope in OAuth2 URL
-- Re-invite bot with updated permissions if needed
+- Bot needs `applications.commands` OAuth2 scope
+- Re-invite with updated permissions
 
 **Bot doesn't respond**
 - Check console for errors
-- Verify Message Content Intent is enabled in Developer Portal
-- Ensure bot has `Send Messages` and `Embed Links` permissions in the channel
+- Verify Message Content Intent enabled
+- Ensure bot has `Send Messages` / `Embed Links` permissions
+
+**Data not persisting**
+- Check `data/` folder permissions
+- JSON files auto-created on first run
 
 ## 📝 License
 
-MIT License - Feel free to modify and share!
+MIT License - Modify and share freely!
 
 ## 🙏 Credits
 

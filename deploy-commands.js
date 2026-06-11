@@ -4,15 +4,76 @@ const { REST, Routes, SlashCommandBuilder } = require('discord.js');
 const commands = [
   new SlashCommandBuilder()
     .setName('fursona')
-    .setDescription('Generate a random fursona with species, colors, personality & backstory'),
+    .setDescription('Generate and manage fursonas')
+    .addSubcommand(sub => 
+      sub.setName('generate')
+        .setDescription('Generate a random fursona')
+    )
+    .addSubcommand(sub => 
+      sub.setName('custom')
+        .setDescription('Create a custom fursona with modal')
+    ),
     
   new SlashCommandBuilder()
-    .setName('fursona-help')
-    .setDescription('Show help and command information for the fursona bot'),
+    .setName('fursona-profile')
+    .setDescription('View your or another user\'s fursona profile')
+    .addUserOption(opt => 
+      opt.setName('user')
+        .setDescription('User to view (defaults to you)')
+        .setRequired(false)
+    ),
+    
+  new SlashCommandBuilder()
+    .setName('fursona-collection')
+    .setDescription('Browse your or another user\'s fursona collection')
+    .addUserOption(opt => 
+      opt.setName('user')
+        .setDescription('User to view (defaults to you)')
+        .setRequired(false)
+    )
+    .addIntegerOption(opt => 
+      opt.setName('page')
+        .setDescription('Page number')
+        .setMinValue(1)
+        .setRequired(false)
+    ),
+    
+  new SlashCommandBuilder()
+    .setName('fursona-leaderboard')
+    .setDescription('View the top fursona collectors')
+    .addIntegerOption(opt => 
+      opt.setName('page')
+        .setDescription('Page number')
+        .setMinValue(1)
+        .setRequired(false)
+    ),
     
   new SlashCommandBuilder()
     .setName('fursona-species')
-    .setDescription('List all available fursona species')
+    .setDescription('List all available fursona species by rarity'),
+    
+  new SlashCommandBuilder()
+    .setName('fursona-trade')
+    .setDescription('Propose a fursona trade with another user')
+    .addUserOption(opt => 
+      opt.setName('user')
+        .setDescription('User to trade with')
+        .setRequired(true)
+    )
+    .addIntegerOption(opt => 
+      opt.setName('your_fursona')
+        .setDescription('Your fursona ID to offer (from /fursona-collection)')
+        .setRequired(true)
+    )
+    .addIntegerOption(opt => 
+      opt.setName('their_fursona')
+        .setDescription('Their fursona ID to request (optional for gifts)')
+        .setRequired(false)
+    ),
+    
+  new SlashCommandBuilder()
+    .setName('fursona-help')
+    .setDescription('Show help and command information for the fursona bot')
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
@@ -28,6 +89,7 @@ async function deployCommands() {
     }
     
     console.log(`🔄 Deploying ${commands.length} slash commands...`);
+    console.log(`📋 Commands: ${commands.map(c => c.name).join(', ')}`);
     
     let data;
     if (guildId) {
