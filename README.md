@@ -4,6 +4,8 @@ A fun and simple Discord bot that generates unique, detailed fursona description
 
 ## ✨ Features
 
+- **Save Collection:** Save your favorite generations to your personal collection with a single click.
+- **Manage Collection:** View and cycle through your saved fursonas anytime with `/collection`.
 - **Infinite Variety:** Hundreds of species (Canine, Feline, Aquatic, Mythical, Original) and millions of trait combinations.
 - **Multi-Dimensional Profiles:**
     - **🧬 Basic Info:** Species, Personality, Aesthetic.

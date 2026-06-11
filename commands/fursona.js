@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const { generateFursona } = require('../utils/generator');
 
 module.exports = {
@@ -23,6 +23,15 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: 'Fursona Generator Bot | Infinite Possibilities' });
 
-        await interaction.reply({ embeds: [embed] });
+        const saveButton = new ButtonBuilder()
+            .setCustomId('save_fursona')
+            .setLabel('Save to Collection')
+            .setStyle(ButtonStyle.Success)
+            .setEmoji('💾');
+
+        const row = new ActionRowBuilder()
+            .addComponents(saveButton);
+
+        await interaction.reply({ embeds: [embed], components: [row] });
     },
 };

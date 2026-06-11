@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits, Collection, REST, Routes } = require('discord.js');
+const { Client, GatewayIntentBits, Collection, REST, Routes, ActionRowBuilder, ButtonBuilder } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -43,24 +43,64 @@ client.once('ready', () => {
 	console.log(`Ready! Logged in as ${client.user.tag}`);
 });
 
+const { saveToUser } = require('./utils/storage');
+
 client.on('interactionCreate', async interaction => {
-	if (!interaction.isChatInputCommand()) return;
+	if (interaction.isChatInputCommand()) {
+		const command = interaction.client.commands.get(interaction.commandName);
 
-	const command = interaction.client.commands.get(interaction.commandName);
+		if (!command) {
+			console.error(`No command matching ${interaction.commandName} was found.`);
+			return;
+		}
 
-	if (!command) {
-		console.error(`No command matching ${interaction.commandName} was found.`);
-		return;
-	}
+		try {
+			await command.execute(interaction);
+		} catch (error) {
+			console.error(error);
+			if (interaction.replied || interaction.deferred) {
+				await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
+			} else {
+				await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+			}
+		}
+	} else if (interaction.isButton()) {
+		if (interaction.customId === 'save_fursona') {
+			const embed = interaction.message.embeds[0];
+			if (!embed) return;
 
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		if (interaction.replied || interaction.deferred) {
-			await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
-		} else {
-			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+			// Extract data from embed fields
+			const fields = embed.fields;
+			const fursonaData = {
+				species: fields[0].value.split('\n')[0].replace('**Species:** ', ''),
+				personality: fields[0].value.split('\n')[1].replace('**Personality:** ', ''),
+				aesthetic: fields[0].value.split('\n')[2].replace('**Aesthetic:** ', ''),
+				pattern: fields[1].value.split('\n')[0].replace('**Pattern:** ', ''),
+				primaryColor: fields[1].value.split('\n')[1].replace('**Primary:** ', ''),
+				secondaryColor: fields[1].value.split('\n')[2].replace('**Secondary:** ', ''),
+				eyeColor: fields[1].value.split('\n')[3].replace('**Eyes:** ', '').split(' (')[0],
+				pupils: fields[1].value.split('\n')[3].match(/\((.*)\)/)?.[1] || 'Standard',
+				ears: fields[2].value.split('\n')[0].replace('**Ears:** ', ''),
+				tail: fields[2].value.split('\n')[1].replace('**Tail:** ', ''),
+				element: fields[2].value.split('\n')[2].replace('**Element:** ', ''),
+				occupation: fields[3].value.split('\n')[0].replace('**Occupation:** ', ''),
+				habitat: fields[3].value.split('\n')[1].replace('**Home:** ', ''),
+				voice: fields[4].value.split('\n')[0].replace('**Voice:** ', ''),
+				scent: fields[4].value.split('\n')[1].replace('**Scent:** ', ''),
+				quirk: fields[5].value
+			};
+
+			const success = saveToUser(interaction.user.id, fursonaData);
+
+			if (success) {
+				await interaction.reply({ content: '✅ Fursona saved to your collection!', ephemeral: true });
+				// Optionally disable the button after saving
+				const disabledButton = ButtonBuilder.from(interaction.component).setDisabled(true);
+				const row = new ActionRowBuilder().addComponents(disabledButton);
+				await interaction.message.edit({ components: [row] });
+			} else {
+				await interaction.reply({ content: '❌ Failed to save fursona. Please try again.', ephemeral: true });
+			}
 		}
 	}
 });
